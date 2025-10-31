@@ -1,0 +1,331 @@
+:root{
+  --bg-start: #f5efff; 
+  --bg-mid: #ffffff; 
+  --bg-end: #e6f4ff;
+  --font-color: #2f2f2f; 
+  --placeholder: #bfbfbf; 
+  --outline: #000;
+  --btn-grad: linear-gradient(#ffd7e6,#ffffff);
+  --soft-blue: #dfefff; 
+  --soft-green: #dfffe0;
+  --max-width: 420px;
+}
+
+/* Global layout */
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg,var(--bg-start),var(--bg-mid),var(--bg-end));
+  font-family: monospace;
+  color: var(--font-color);
+}
+.app-center {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Screens */
+.screen { width: 100%; padding: 18px; }
+.screen-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 60vh;
+  text-align: center;
+}
+.hidden { display: none !important; }
+
+/* 1. Loading typewriter (center) */
+.typewriter {
+  font-family: monospace;
+  color: var(--font-color);
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: .12em solid rgba(0,0,0,.7);
+  width: 20ch;
+  animation: typing 1s steps(25) 1, blink .3s step-end infinite;
+}
+@keyframes typing { from { width: 0 } to { width: 20ch } }
+@keyframes blink { 40% { border-color: transparent } }
+
+/* Login (center) */
+.title { font-size: 22px; margin: 6px 0; }
+.screen-center input[type="password"] {
+  width: 100%;
+  max-width: 360px;
+  padding: 12px;
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--font-color);
+  font-family: monospace;
+}
+.screen-center input::placeholder { color: var(--placeholder); }
+.btn {
+  font-family: monospace;
+  background: var(--btn-grad);
+  border: 2px solid var(--outline);
+  color: var(--font-color);
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 360px;
+}
+.btn.small { width: auto; padding: 8px 10px; }
+.btn.foot { width: 48%; }
+
+/* Main header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.header-title {
+  font-size: 16px;
+  text-align: right;
+  flex: 1;
+}
+
+/* Body content */
+.body { padding: 20px; }
+.left-title {
+  text-align: left;
+  font-size: 16px;
+  margin: 10px 0;
+}
+.left-sub {
+  text-align: left;
+  font-size: 13px;
+  margin: 0 0 12px 0;
+  color: var(--font-color);
+}
+
+/* Input Entry form */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ⬅️ Semua isi form center */
+  gap: 12px;
+}
+
+.form input[type="date"], 
+.form input[list], 
+input[type="date"], 
+input[list] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--outline);
+  background: #fff;
+  border-radius: 8px;
+  font-family: monospace;
+  color: var(--font-color);
+}
+
+/* Segmented control */
+.segmented {
+  display: flex;
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+.seg-btn {
+  flex: 1;
+  padding: 12px;
+  background: #fff;
+  border: 0;
+  font-family: monospace;
+  cursor: pointer;
+}
+.seg-btn.active { background: var(--soft-blue); }
+.seg-btn.cash-active { background: var(--soft-green); }
+
+/* Centered Submit Button */
+.submit-btn {
+  display: block;
+  margin: 20px auto;
+  background: var(--btn-grad);
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: monospace;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 360px;
+}
+.submit-btn:active { transform: scale(0.95); }
+.submit-btn:hover { box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
+
+/* Footer fixed for mobile */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background: linear-gradient(180deg,#ffdfe9,#fff);
+  border-top: 2px solid var(--outline);
+  z-index: 20;
+}
+
+/* Toolbar for database */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.left-inline, .right-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Table area */
+.tableArea { padding-bottom: 70px; }
+.dataTable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dateHeader {
+  font-weight: bold;
+  margin-top: 12px;
+  margin-left: 4px;
+}
+.rowEntry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 2px solid var(--outline);
+  background: #fff;
+  border-radius: 8px;
+}
+.rowLeft { min-width: 28%; }
+.rowMid {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+.cellPayment.cash { color: green; font-weight: 600; }
+.cellPayment.transfer { color: blue; font-weight: 600; }
+.rowSelect input[type="checkbox"] { width: 18px; height: 18px; }
+
+/* Popout & modal */
+.popout {
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 2px solid var(--outline);
+  padding: 10px 16px;
+  border-radius: 6px;
+  z-index: 30;
+}
+.modal {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.25);
+  z-index: 40;
+}
+.modal .modal-content {
+  background: #fff;
+  padding: 18px;
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+}
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* Small helpers */
+.empty {
+  padding: 12px;
+  color: var(--placeholder);
+  text-align: center;
+}
+.tableFooter {
+  margin-top: 8px;
+  padding: 6px;
+  font-size: 13px;
+  color: var(--font-color);
+}
+
+/* Responsive */
+@media (max-width:420px) {
+  .app-center { padding-bottom: 90px; }
+  .btn, input { max-width: 100%; }
+}
+
+/* --- FORM INPUT ENTRIES --- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* jarak antar elemen input */
+  margin-top: 10px;
+  padding-bottom: 100px; /* agar tidak ketutupan footer */
+}
+
+.form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--font-color);
+  text-align: left;
+}
+
+.form input[type="date"],
+.form input[list],
+.form input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--font-color);
+  font-family: monospace;
+}
+
+/* --- tombol submit agar center & proporsional --- */
+#submitBtn {
+  display: block;
+  margin: 20px auto 0 auto;
+  width: 80%;
+  max-width: 320px;
+  text-align: center;
+  font-weight: bold;
+  background: var(--btn-grad);
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+#submitBtn:active {
+  transform: scale(0.97);
+}

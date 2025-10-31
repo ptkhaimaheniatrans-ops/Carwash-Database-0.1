@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Carwash-Database-0.1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="app" class="app-center">
+    <!-- Loading (typewriter) -->
+    <div id="loading" class="screen screen-center">
+      <div class="typewriter">Wait for log . . .☕</div>
+    </div>
+
+    <!-- Login -->
+    <div id="login" class="screen screen-center hidden">
+      <h1 class="title">Enter Code</h1>
+      <input id="codeInput" type="password" placeholder="Input your secret code here" />
+      <button id="connectBtn" class="btn primary">Connect</button>
+    </div>
+
+    <!-- Main app -->
+    <div id="main" class="hidden">
+      <header class="header">
+        <button id="leaveBtn" class="btn small">Leave</button>
+        <div class="header-title">Carwash Database</div>
+        <div style="width:54px"></div>
+      </header>
+
+      <main id="pageBody" class="body">
+        <!-- Dashboard -->
+        <section id="dashboard" class="page">
+          <h2 class="left-title">Hey there! Welcome to your digital dashboard.</h2>
+          <p class="left-sub">Pick what you'd like to do next down below.</p>
+        </section>
+
+        <!-- Input Entry -->
+        <section id="inputEntry" class="page hidden">
+          <h2 class="center-title">fill your form down below.</h2>
+
+          <label>Date</label>
+          <input id="dateBox" type="date" />
+
+          <label>Driver or PO</label>
+          <input id="driverBox" list="driverList" placeholder="choose or type manually" />
+          <datalist id="driverList">
+            <option>Andris</option><option>Malik</option><option>Johan</option><option>Dudi</option><option>Iwan</option><option>Teddy</option><option>Kholik</option><option>Rijal</option><option>Seno</option><option>Kantor</option>
+          </datalist>
+
+          <label>Unit</label>
+          <input id="unitBox" list="unitList" placeholder="choose or type manually" />
+          <datalist id="unitList">
+            <option>New Avanza</option><option>New Xenia ROK - FAU</option><option>Honda BRV BZO</option><option>Terios UKU</option><option>Veloz DFJ</option><option>Stargazer</option><option>Innova Reborn PKA - FAP</option><option>Zenix 89 WIS</option><option>Zenix 50 WIS</option><option>Zenix Hybrid NFJ</option><option>HiAce 09 WDA</option>
+          </datalist>
+
+          <label>Payment Method</label>
+          <div class="segmented" id="paymentSeg">
+            <button id="transferBtn" class="seg-btn">Transfer</button>
+            <button id="cashBtn" class="seg-btn">Cash</button>
+          </div>
+
+          <button id="submitBtn" class="btn primary">Press to Submit</button>
+        </section>
+
+        <!-- Database -->
+        <section id="database" class="page hidden">
+          <div class="toolbar">
+            <div class="left-inline">
+              <label>Filter</label>
+              <input id="filterMonth" type="month" />
+              <button id="searchBtn" class="btn small">Search</button>
+            </div>
+            <div class="right-inline">
+              <button id="selectBtn" class="btn small">Select</button>
+              <button id="deleteBtn" class="btn small">Delete</button>
+            </div>
+          </div>
+
+          <div id="tableArea" class="tableArea"></div>
+        </section>
+      </main>
+
+      <!-- footer fixed for mobile -->
+      <footer class="footer">
+        <button id="navInput" class="btn foot">Input Entry</button>
+        <button id="navDb" class="btn foot">Database</button>
+      </footer>
+    </div>
+
+    <!-- popouts & modal -->
+    <div id="popout" class="popout hidden"></div>
+
+    <div id="confirmModal" class="modal hidden">
+      <div class="modal-content">
+        <p>Are you sure?</p>
+        <div class="modal-actions">
+          <button id="confirmYes" class="btn small">Yes</button>
+          <button id="confirmNo" class="btn small">No</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- sounds -->
+    <audio id="soundKlik" src="assets/sounds/klik.mp3"></audio>
+    <audio id="soundError" src="assets/sounds/error.mp3"></audio>
+    <audio id="soundSuccess" src="assets/sounds/success.mp3"></audio>
+    <audio id="soundWelcome" src="assets/sounds/welcome.mp3"></audio>
+    <audio id="soundLogout" src="assets/sounds/logout.mp3"></audio>
+
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Carwash-Database-0.1",
+  "short_name": "CarwashDB",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#d4ebff",
+  "icons": [
+    { "src": "assets/icons/icon-192.png.PNG", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png.jpeg", "sizes": "512x512", "type": "image/jpeg" }
+  ]
+}
