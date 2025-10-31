@@ -1,22 +1,22 @@
-:root{
-  --bg-start: #f5efff; 
-  --bg-mid: #ffffff; 
+:root {
+  --bg-start: #f5efff;
+  --bg-mid: #ffffff;
   --bg-end: #e6f4ff;
-  --font-color: #2f2f2f; 
-  --placeholder: #bfbfbf; 
+  --font-color: #2f2f2f;
+  --placeholder: #bfbfbf;
   --outline: #000;
-  --btn-grad: linear-gradient(#ffd7e6,#ffffff);
-  --soft-blue: #dfefff; 
+  --btn-grad: linear-gradient(#ffd7e6, #ffffff);
+  --soft-blue: #dfefff;
   --soft-green: #dfffe0;
   --max-width: 420px;
 }
 
-/* Global layout */
+/* GLOBAL */
 * { box-sizing: border-box; }
 html, body {
   height: 100%;
   margin: 0;
-  background: linear-gradient(180deg,var(--bg-start),var(--bg-mid),var(--bg-end));
+  background: linear-gradient(180deg, var(--bg-start), var(--bg-mid), var(--bg-end));
   font-family: monospace;
   color: var(--font-color);
 }
@@ -27,7 +27,7 @@ html, body {
   position: relative;
 }
 
-/* Screens */
+/* SCREEN STRUCTURE */
 .screen { width: 100%; padding: 18px; }
 .screen-center {
   display: flex;
@@ -39,10 +39,8 @@ html, body {
 }
 .hidden { display: none !important; }
 
-/* 1. Loading typewriter (center) */
+/* LOADING TYPEWRITER */
 .typewriter {
-  font-family: monospace;
-  color: var(--font-color);
   font-size: 18px;
   white-space: nowrap;
   overflow: hidden;
@@ -53,7 +51,7 @@ html, body {
 @keyframes typing { from { width: 0 } to { width: 20ch } }
 @keyframes blink { 40% { border-color: transparent } }
 
-/* Login (center) */
+/* LOGIN */
 .title { font-size: 22px; margin: 6px 0; }
 .screen-center input[type="password"] {
   width: 100%;
@@ -63,9 +61,10 @@ html, body {
   border-radius: 8px;
   background: #fff;
   color: var(--font-color);
-  font-family: monospace;
 }
 .screen-center input::placeholder { color: var(--placeholder); }
+
+/* GENERIC BUTTON */
 .btn {
   font-family: monospace;
   background: var(--btn-grad);
@@ -81,61 +80,54 @@ html, body {
 .btn.small { width: auto; padding: 8px 10px; }
 .btn.foot { width: 48%; }
 
-/* Main header */
+/* HEADER */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
 }
-.header-title {
-  font-size: 16px;
-  text-align: right;
-  flex: 1;
-}
+.header-title { font-size: 16px; text-align: right; flex: 1; }
 
-/* Body content */
+/* BODY */
 .body { padding: 20px; }
-.left-title {
-  text-align: left;
-  font-size: 16px;
-  margin: 10px 0;
-}
-.left-sub {
-  text-align: left;
-  font-size: 13px;
-  margin: 0 0 12px 0;
-  color: var(--font-color);
-}
+.left-title { text-align: left; font-size: 16px; margin: 10px 0; }
+.left-sub { text-align: left; font-size: 13px; margin: 0 0 12px 0; color: var(--font-color); }
 
-/* Input Entry form */
+/* FORM INPUT AREA */
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center; /* ⬅️ Semua isi form center */
-  gap: 12px;
+  gap: 14px;
+  margin-top: 10px;
+  padding-bottom: 100px; /* biar tidak tertutup footer */
 }
-
-.form input[type="date"], 
-.form input[list], 
-input[type="date"], 
-input[list] {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid var(--outline);
-  background: #fff;
-  border-radius: 8px;
-  font-family: monospace;
+.form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
   color: var(--font-color);
+  text-align: left;
+}
+.form input[type="date"],
+.form input[list],
+.form input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--outline);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--font-color);
+  font-family: monospace;
 }
 
-/* Segmented control */
+/* SEGMENTED CONTROL */
 .segmented {
   display: flex;
   border: 2px solid var(--outline);
   border-radius: 8px;
   overflow: hidden;
-  margin: 8px 0;
+  margin-top: 6px;
 }
 .seg-btn {
   flex: 1;
@@ -148,25 +140,25 @@ input[list] {
 .seg-btn.active { background: var(--soft-blue); }
 .seg-btn.cash-active { background: var(--soft-green); }
 
-/* Centered Submit Button */
-.submit-btn {
+/* SUBMIT BUTTON */
+#submitBtn {
   display: block;
-  margin: 20px auto;
+  margin: 20px auto 0;
+  width: 80%;
+  max-width: 320px;
+  text-align: center;
+  font-weight: bold;
   background: var(--btn-grad);
   border: 2px solid var(--outline);
   border-radius: 8px;
-  padding: 12px 24px;
-  font-family: monospace;
-  color: var(--font-color);
+  padding: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 100%;
-  max-width: 360px;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
 }
-.submit-btn:active { transform: scale(0.95); }
-.submit-btn:hover { box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
+#submitBtn:hover { box-shadow: 0 3px 6px rgba(0,0,0,0.15); }
+#submitBtn:active { transform: scale(0.97); }
 
-/* Footer fixed for mobile */
+/* FOOTER NAV */
 .footer {
   position: fixed;
   bottom: 0;
@@ -177,36 +169,19 @@ input[list] {
   display: flex;
   justify-content: space-around;
   padding: 10px;
-  background: linear-gradient(180deg,#ffdfe9,#fff);
+  background: linear-gradient(180deg, #ffdfe9, #fff);
   border-top: 2px solid var(--outline);
   z-index: 20;
 }
 
-/* Toolbar for database */
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-}
-.left-inline, .right-inline {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Table area */
+/* DATABASE TABLE */
 .tableArea { padding-bottom: 70px; }
 .dataTable {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.dateHeader {
-  font-weight: bold;
-  margin-top: 12px;
-  margin-left: 4px;
-}
+.dateHeader { font-weight: bold; margin-top: 12px; margin-left: 4px; }
 .rowEntry {
   display: flex;
   align-items: center;
@@ -217,17 +192,12 @@ input[list] {
   border-radius: 8px;
 }
 .rowLeft { min-width: 28%; }
-.rowMid {
-  flex: 1;
-  display: flex;
-  gap: 8px;
-  justify-content: flex-start;
-}
+.rowMid { flex: 1; display: flex; gap: 8px; justify-content: flex-start; }
 .cellPayment.cash { color: green; font-weight: 600; }
 .cellPayment.transfer { color: blue; font-weight: 600; }
 .rowSelect input[type="checkbox"] { width: 18px; height: 18px; }
 
-/* Popout & modal */
+/* POPOUT & MODAL */
 .popout {
   position: fixed;
   left: 50%;
@@ -262,70 +232,12 @@ input[list] {
   margin-top: 8px;
 }
 
-/* Small helpers */
-.empty {
-  padding: 12px;
-  color: var(--placeholder);
-  text-align: center;
-}
-.tableFooter {
-  margin-top: 8px;
-  padding: 6px;
-  font-size: 13px;
-  color: var(--font-color);
-}
+/* SMALL HELPERS */
+.empty { padding: 12px; color: var(--placeholder); text-align: center; }
+.tableFooter { margin-top: 8px; padding: 6px; font-size: 13px; color: var(--font-color); }
 
-/* Responsive */
-@media (max-width:420px) {
+/* RESPONSIVE */
+@media (max-width: 420px) {
   .app-center { padding-bottom: 90px; }
   .btn, input { max-width: 100%; }
-}
-
-/* --- FORM INPUT ENTRIES --- */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px; /* jarak antar elemen input */
-  margin-top: 10px;
-  padding-bottom: 100px; /* agar tidak ketutupan footer */
-}
-
-.form label {
-  font-size: 14px;
-  margin-bottom: 6px;
-  display: block;
-  color: var(--font-color);
-  text-align: left;
-}
-
-.form input[type="date"],
-.form input[list],
-.form input[type="text"] {
-  width: 100%;
-  padding: 12px 14px;
-  border: 2px solid var(--outline);
-  border-radius: 8px;
-  background: #fff;
-  color: var(--font-color);
-  font-family: monospace;
-}
-
-/* --- tombol submit agar center & proporsional --- */
-#submitBtn {
-  display: block;
-  margin: 20px auto 0 auto;
-  width: 80%;
-  max-width: 320px;
-  text-align: center;
-  font-weight: bold;
-  background: var(--btn-grad);
-  border: 2px solid var(--outline);
-  border-radius: 8px;
-  padding: 12px;
-  cursor: pointer;
-  transition: transform 0.1s ease;
-}
-
-#submitBtn:active {
-  transform: scale(0.97);
 }
