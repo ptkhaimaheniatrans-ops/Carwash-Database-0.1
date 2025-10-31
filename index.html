@@ -37,33 +37,52 @@
           <p class="left-sub">Pick what you'd like to do next down below.</p>
         </section>
 
-        <!-- Input Entry -->
-        <section id="inputEntry" class="page hidden">
-          <h2 class="center-title">fill your form down below.</h2>
+<!-- Input Entry -->
+<section id="inputEntry" class="page hidden">
+  <h2 class="center-title">fill your form down below.</h2>
 
-          <label>Date</label>
-          <input id="dateBox" type="date" />
+  <form class="form" id="dataForm">
 
-          <label>Driver or PO</label>
-          <input id="driverBox" list="driverList" placeholder="choose or type manually" />
-          <datalist id="driverList">
-            <option>Andris</option><option>Malik</option><option>Johan</option><option>Dudi</option><option>Iwan</option><option>Teddy</option><option>Kholik</option><option>Rijal</option><option>Seno</option><option>Kantor</option>
-          </datalist>
+    <div class="form-group">
+      <label for="dateBox">Date</label>
+      <input id="dateBox" type="date" required />
+    </div>
 
-          <label>Unit</label>
-          <input id="unitBox" list="unitList" placeholder="choose or type manually" />
-          <datalist id="unitList">
-            <option>New Avanza</option><option>New Xenia ROK - FAU</option><option>Honda BRV BZO</option><option>Terios UKU</option><option>Veloz DFJ</option><option>Stargazer</option><option>Innova Reborn PKA - FAP</option><option>Zenix 89 WIS</option><option>Zenix 50 WIS</option><option>Zenix Hybrid NFJ</option><option>HiAce 09 WDA</option>
-          </datalist>
+    <div class="form-group">
+      <label for="driverBox">Driver & PO</label>
+      <input id="driverBox" list="driverList" placeholder="choose or type manually" />
+      <datalist id="driverList">
+        <option>Andris</option><option>Malik</option><option>Johan</option>
+        <option>Dudi</option><option>Iwan</option><option>Teddy</option>
+        <option>Kholik</option><option>Rijal</option><option>Seno</option>
+        <option>Kantor</option>
+      </datalist>
+    </div>
 
-          <label>Payment Method</label>
-          <div class="segmented" id="paymentSeg">
-            <button id="transferBtn" class="seg-btn">Transfer</button>
-            <button id="cashBtn" class="seg-btn">Cash</button>
-          </div>
+    <div class="form-group">
+      <label for="unitBox">Unit</label>
+      <input id="unitBox" list="unitList" placeholder="choose or type manually" />
+      <datalist id="unitList">
+        <option>New Avanza</option><option>New Xenia ROK - FAU</option>
+        <option>Honda BRV BZO</option><option>Terios UKU</option>
+        <option>Veloz DFJ</option><option>Stargazer</option>
+        <option>Innova Reborn PKA - FAP</option><option>Zenix 89 WIS</option>
+        <option>Zenix 50 WIS</option><option>Zenix Hybrid NFJ</option>
+        <option>HiAce 09 WDA</option>
+      </datalist>
+    </div>
 
-          <button id="submitBtn" class="btn primary">Press to Submit</button>
-        </section>
+    <div class="form-group">
+      <label>Payment Method</label>
+      <div class="segmented" id="paymentSeg">
+        <button id="transferBtn" class="seg-btn">Transfer</button>
+        <button id="cashBtn" class="seg-btn">Cash</button>
+      </div>
+    </div>
+
+    <button id="submitBtn" class="btn primary" type="submit">Press to Submit</button>
+  </form>
+</section>
 
         <!-- Database -->
         <section id="database" class="page hidden">
